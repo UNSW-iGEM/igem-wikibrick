@@ -35,7 +35,7 @@ var relative2absolute = function(css, opts) { // relative2absolute function for 
     css.walkDecls(function(decl) {
         //console.log(decl);
         if (decl.prop === 'src' && urlIsRelative(decl.value)) {
-            //console.log(decl.value.replace(/(url\("|"\))/gi,'')); 
+            //console.log(decl.value.replace(/(url\("|"\))/gi,''));
             decl.value = 'url("' + uploadmap.file[path.parse(decl.value.replace(/(url\("|"\))/gi,''))] + '")'; // Remove url identifier for uploadmap
         }
     });

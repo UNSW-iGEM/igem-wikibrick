@@ -58,7 +58,7 @@ Major composite tasks can be found in the [main gulpfile](https://github.com/Vir
 - The `-l/-d` switch: Any gulp command can be flagged with `-l` or `-d`. These are short for `--env=live` and `--env=dev`, respectively. Both are different build environments that affect the way `gulp` transforms our files in `app` into files in `build`.
   - The `dev` environment prepares files to run on your local machine. It is also the default, implied environment; if you use `-d` or `--env=dev` in a command, you can simply omit it to achieve the same effect. This setting is most commonly used with `gulp serve`, though can also be used with `gulp build` to produce files that can be run through any web browser.
   - The `live` environment prepares files for uploading to the iGEM wiki, and should only be used when you want to modify your actual, _live_ wiki page on igem.org.
-  - Note that these environments are not hard-coded but defined in `config.js`. 
+  - Note that these environments are not hard-coded but defined in `config.js`.
 - `gulp serve`: Builds a set of development files via `gulp dev build` before launching a local webserver, which hosts out of the `build` folder and watches the `app` folder for any changes to relevant content files. In the event of a change, these files will be automatically built before being streamed to the webserver for immediate display in your browser. This enables rapid development and should be used when editing stylesheets, HTML or JavaScript for use on the wiki.
 - `gulp publish -l`: First builds and pushes images to the wiki, which is necessary in order to generate their URLs.Images uploaded to the iGEM Wiki do not have predictable URLs, and so before a live build with URL substitution can be performed, images must first be uploaded. Once this is done, a live build executes, using a saved map of image locations under `build/imagemap.json` and a predictable URL map, defined by `.config/igem-wikibrick` to substitute relative URLs for absolute URLs. Then the remaining files, HTML, JS, CSS and vendor files are pushed to the iGEM server.
 
@@ -66,16 +66,16 @@ Major composite tasks can be found in the [main gulpfile](https://github.com/Vir
 
 #### Building (build:, clean)
 
-- `asset.js`:  
+- `asset.js`:
   - `build:js` and 'build:css' minifies and stages the respective files. Minification allows for a faster build time, as it strips away the whitespace, new character lines, and anything that does not change the code's functionality.
   - `build:sass` includes Bourboun and Neat as well as Sass files and minification.
-  - `build:images` stages all .png and .jpg images.  
-- `bower.js`:  
-  - `build:bower:js` and `build:bower:css` stages JavaScript (JQuery, Bourboun and Neat, and any other future live dependencies) and CSS libraries, respectively.  
-- `clean.js`:  
+  - `build:images` stages all .png and .jpg images.
+- `bower.js`:
+  - `build:bower:js` and `build:bower:css` stages JavaScript (JQuery, Bourboun and Neat, and any other future live dependencies) and CSS libraries, respectively.
+- `clean.js`:
   - `clean`: As you may have guessed, cleans your build directory out of all files. A clean is automatically peformed before every prebuild.
-- `html.js`:  
-  - `build:index`, `build:pages`, `build:templates` builds the respective pages for developmental view. 
+- `html.js`:
+  - `build:index`, `build:pages`, `build:templates` builds the respective pages for developmental view.
 
 #### Uploading (push:)
 

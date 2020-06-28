@@ -19,8 +19,9 @@ var crypto = require('crypto');
 
 function isEmpty(obj) {
     for(var key in obj) {
-        if(obj.hasOwnProperty(key))
+        if(obj.hasOwnProperty(key)) {
             return false;
+        }
     }
     return true;
 }
@@ -181,7 +182,7 @@ var retryUpload = function(conf, uploadmap, retries) {
 // Uploads a bunch of files one-by-one to the igemwiki following their mappings
 upload = function(promises) {
     return new Promise((resolve, reject) => {
-        // Run all mapping functions asynchronously with bluebird, 
+        // Run all mapping functions asynchronously with bluebird,
         // generating an actual map list from the patterns we specified.
         Promise.all(promises).then((confs) => {
             fs.open(uploadmapfilename, 'r', (err, fd) => {
